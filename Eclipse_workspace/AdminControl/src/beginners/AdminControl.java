@@ -4,43 +4,38 @@ import java.util.*;
 public class AdminControl implements UserChoices {
 	ArrayList<Customer> customerList=new ArrayList<Customer>();
 	ArrayList<Car>carsOfCustomer;
-	boolean continueUrWindow=true;
+	private boolean continueUrWindow=true;
 	Scanner inputChoice=new Scanner(System.in);
 
-	int idOfExistingCustomer;
+	private int idOfExistingCustomer;
 	Customer existingCustomer=new Customer();
 	public void display(){
 		do{
 			System.out.println("\n ---------AdminPanel---------");
 			System.out.println(" enter 1: add New Customer \n enter 2: add Car To Existing Customer \n enter 3: sort Customer By Name  \n enter 4: generate Prize Of Customer \n enter 5: exit");
 			System.out.println(" \n ----------Enter your Input---------- ");
-
 			int inputYourChoice=inputChoice.nextInt();
-
 			switch(inputYourChoice){
-			case addNewCustomer:
+			case ADD_CUSTOMER:
 				addCustomer();
 				break;
-			case addCarToExistingCustomer:
+			case ADD_CAR:
 				//displayListOfCustomers();
 				System.out.println(" --------enter id of customer to which you want to add car---------");
-
 				int id=inputChoice.nextInt();
 				addCartoExistingCustomer(id);
 				break;
-			case sortCustomerByName:
+			case SORT_CUSTOMER_BY_NAME:
 				displayListOfCustomers();
 				break;
-			case generatePrizeOfCustomer:
+			case GENERATE_PRIZE:
 				generatePrizeOfCustomer();
 				break;
-			case exit:
+			case EXIT:
 				System.exit(0);
 			default:
 				System.out.println("enter correct input");
 			}
-
-
 		}
 		while(continueUrWindow);
 	}
@@ -56,33 +51,27 @@ public class AdminControl implements UserChoices {
 			newCustomer.setNameOfCustomer(nameOfCustomer);
 		}
 		newCustomer.addCarToCustomer();
-		
 		customerList.add(newCustomer);
 	}
-
 	private void addCartoExistingCustomer(int id){
 		boolean check=true;
 		int customerIndex=0;
-		
 		while(customerIndex<customerList.size()){
 			existingCustomer=customerList.get(customerIndex);
 			if(existingCustomer.getCustomerId()==id){
 				idOfExistingCustomer=customerIndex;
 				existingCustomer=customerList.get(idOfExistingCustomer);
 				check=false;
-			}
-			
-			
-			customerIndex++;
 		}
+		customerIndex++;
+	}
 		if(!check){
 		existingCustomer.addCarToCustomer();
-		}
+  }
 		else if(check){
 			System.out.println("id is not valid");
-		}
-	
-	}
+	 }
+  }
 	public void displayListOfCustomers(){
 		int customerIndex=0;
 		Collections.sort(customerList, new Comparator<Customer>() {
@@ -94,21 +83,19 @@ public class AdminControl implements UserChoices {
 		System.out.println("CustomerId          CustomerName       Cars ");
 		while(customerIndex<customerList.size()){
 			existingCustomer=customerList.get(customerIndex);
-		System.out.print(existingCustomer.getCustomerId()+"             ");
-		System.out.print("           "+existingCustomer.getNameOfCustomer()+"             ");
+			System.out.print(existingCustomer.getCustomerId()+"             ");
+			System.out.print("           "+existingCustomer.getNameOfCustomer()+"             ");
 		//System.out.println("     "+existingCustomer.listOfPurchasedCars());
 		carsOfCustomer=existingCustomer.listOfPurchasedCars();
 		int indexForCar=0;
 		while(indexForCar<carsOfCustomer.size()){
-			System.out.print(""+carsOfCustomer.get(indexForCar).nameOfCar+" ");
+			System.out.print(""+carsOfCustomer.get(indexForCar).model+" ");
 			indexForCar++;
 		}
 		customerIndex++;
 		System.out.println("");
-
-		}
 	}
-
+ }
 	public void generatePrizeOfCustomer(){
 		Random randomNumbers = new Random();
 		int rand = randomNumbers.nextInt(customerList.size());
@@ -126,12 +113,11 @@ public class AdminControl implements UserChoices {
 		}
 		else{
 				randomNumberCheck=false;	
-			}
-		}
+	   }
 	}
+ }
 	public static void main(String []args){
 		AdminControl admin=new AdminControl();
 		admin.display();
 	}
-
-}
+ }

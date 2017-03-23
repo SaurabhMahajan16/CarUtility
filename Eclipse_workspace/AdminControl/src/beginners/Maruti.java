@@ -1,11 +1,10 @@
 package beginners;
-
 import java.util.Scanner;
 
+
 public class Maruti extends Car implements UserChoices {
-	
 public void setCompany(){
-	companyOfCar="Maruti";
+	company="Maruti";
 	}
 	
 	public void setModel(){
@@ -14,22 +13,20 @@ public void setCompany(){
 	Scanner getInput=new Scanner(System.in);
 	int inputModelNo=getInput.nextInt();
 	switch (inputModelNo) {
-	case alto:
-	nameOfCar="alto ";
+	case ALTO:
+	model="alto ";
 	resaleValueOfCar=0.4*400000;
 	break;
-	case swift:
-	nameOfCar="swift ";
+	case SWIFT:
+	model="swift ";
 	resaleValueOfCar=0.4*760000;
 	break;
-	case ciaz:
-	nameOfCar="ciaz ";
+	case CIAZ:
+	model="ciaz ";
 	resaleValueOfCar=0.4*1150000;
 	break;
 	default:
 		System.out.println("enter a valid input");
 	}
-	
-	
-	}
+  }
 }

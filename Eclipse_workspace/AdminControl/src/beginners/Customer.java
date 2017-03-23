@@ -3,7 +3,7 @@ import java.util.*;
 public class Customer implements UserChoices {
 	private final int Customer_Id;
 	private String customerName;
-	private static int Id_Assign=0;
+	private static int ID_ASSIGN=0;
 	
 	
 	ArrayList<Car>carPurchasedList=new ArrayList<Car>();
@@ -14,7 +14,7 @@ public class Customer implements UserChoices {
 	
 	Customer(){
 		
-		Customer_Id=Id_Assign++;
+		Customer_Id=ID_ASSIGN++;
 	
 	}
 	
@@ -37,13 +37,13 @@ public class Customer implements UserChoices {
 		int inputCarCompany=getInput.nextInt();
 		Car addNewCar=null;
 		switch(inputCarCompany){
-		case hyundai:
+		case HYUNDAI:
 		addNewCar=new Hyundai();
 		break;
-		case toyota:
+		case TOYOTA:
 		addNewCar=new Toyota();
 		break;
-		case maruti:
+		case MARUTI:
 		addNewCar=new Maruti();
 		break;
 		default:
@@ -51,19 +51,19 @@ public class Customer implements UserChoices {
 		
 		
 		}
-		if(inputCarCompany==hyundai ){
+		if(inputCarCompany==HYUNDAI ){
 			addNewCar.setCarId();
 			addNewCar.setCompany();
 			addNewCar.setModel();
 			
 		}
-		else if( inputCarCompany==toyota){
+		else if( inputCarCompany==TOYOTA){
 			addNewCar.setCarId();
 			addNewCar.setCompany();
 			addNewCar.setModel();
 			
 		}
-		else if(inputCarCompany==maruti){
+		else if(inputCarCompany==MARUTI){
 			addNewCar.setCarId();
 			addNewCar.setCompany();
 			addNewCar.setModel();

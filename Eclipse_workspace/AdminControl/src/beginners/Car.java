@@ -1,18 +1,18 @@
 package beginners;
 
 public abstract class Car {
-	 int idOfCar;
-	private static int Id_Of_Car_Set=0;
-	double priceOfCar;
-	String companyOfCar;
-	String nameOfCar;
-	double resaleValueOfCar;
+	public int idOfCar;
+	private static int SET_ID=0;
+	public double priceOfCar;
+	public String company;
+	public String model;
+	public double resaleValueOfCar;
 	
 	public int  setCarId(){
-	return idOfCar=++Id_Of_Car_Set;
+	return idOfCar=++SET_ID;
 	}
 	
-	int getId(){
+	public int getId(){
 	return idOfCar;
 	}
 	abstract public void setCompany();

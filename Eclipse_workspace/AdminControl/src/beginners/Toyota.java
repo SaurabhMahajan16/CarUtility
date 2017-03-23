@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Toyota extends Car implements UserChoices{
 
 	public void setCompany(){
-		companyOfCar="Toyota";
+		company="Toyota";
 		}
 		
 		public void setModel(){
@@ -14,16 +14,16 @@ public class Toyota extends Car implements UserChoices{
 		Scanner getInput=new Scanner(System.in);
 		int inputModelNo=getInput.nextInt();
 		switch (inputModelNo) {
-		case etios:
-		nameOfCar="etios ";
+		case ETIOS:
+		model="etios ";
 		resaleValueOfCar=0.8*550000;
 		break;
-		case livia:
-		nameOfCar="Livia ";
+		case LIVIA:
+		model="Livia ";
 		resaleValueOfCar=0.8*1080000;
 		break;
-		case fortuner:
-		nameOfCar="fortuner ";
+		case FORTUNER:
+		model="fortuner ";
 		resaleValueOfCar=0.8*2770000;
 		break;
 		default:
